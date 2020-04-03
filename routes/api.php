@@ -18,12 +18,12 @@ Route::post('login', 'UserController@login'); //login
 
 Route::middleware(['jwt.verify'])->group(function(){
 
+Route::post('logout', "LoginController@logout"); //logout
+
 //Daily Scrum
-Route::get('dailyscrum', 'DailyScrumController@index'); //read daily scrum
-Route::get('dailyscrum{limit}/{offset}', 'DailyScrumController@getAll'); //read daily scrum
-Route::post('dailyscrum', 'DailyScrumController@store'); //create daily scrum
-Route::put('dailyscrum/{id}', 'DailyScrumController@update'); //update daily scrum
-Route::delete('dailyscrum/{id}', 'DailyScrumController@delete'); //delete daily scrum
+Route::get('dailyscrum/{id}', 'Daily_ScrumController@index'); //read daily scrum
+Route::post('dailyscrum', 'Daily_ScrumController@store'); //create daily scrum
+Route::delete('dailyscrum/{id}', 'Daily_ScrumController@delete'); //delete daily scrum
 
 });
 
